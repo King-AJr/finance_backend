@@ -15,6 +15,10 @@ app.add_middleware(
 
 app.include_router(finance.router, prefix="/api", tags=["api"])
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Youtube Assistant API"} 
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
